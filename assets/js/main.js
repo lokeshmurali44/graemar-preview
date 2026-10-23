@@ -167,22 +167,6 @@
     .join(", ");
   photo.src = `assets/images/projects/${config.image}-640.webp`;
   const form = document.getElementById("quote-form");
-  if (location.hostname === "lokeshmurali44.github.io") {
-    // GitHub Pages serves static files and cannot run /api/quote.
-    form.hidden = true;
-    const contact = document.createElement("div");
-    contact.className = "quote-offsite";
-    const heading = document.createElement("h3");
-    heading.textContent = "Request your quote";
-    const description = document.createElement("p");
-    description.textContent = "Continue to Graemar’s contact form to send your project details directly to the team.";
-    const link = document.createElement("a");
-    link.href = "https://graemar.com/home/contact-us/";
-    link.className = "button btn btn-primary";
-    link.textContent = "Open Graemar’s contact form ↗";
-    contact.append(heading, description, link);
-    form.after(contact);
-  }
   form.elements.service.value = service;
   form.elements.projectType.value = config.projectType;
   const attributionKeys = [
@@ -236,6 +220,13 @@
     event.stopPropagation();
     if (status === "sending" || status === "success") return;
     if (!form.reportValidity()) return;
+    if (location.hostname === "lokeshmurali44.github.io") {
+      const notice = document.createElement("p");
+      notice.className = "form-note";
+      notice.textContent = "This is a design preview. Your enquiry has not been sent.";
+      message.replaceChildren(notice);
+      return;
+    }
     status = "sending";
     button.disabled = true;
     button.textContent = "Sending…";

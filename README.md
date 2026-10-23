@@ -47,4 +47,4 @@ Browser checks use Playwright Chromium (npx playwright install chromium if neede
 
 ## GitHub Pages preview
 
-The public preview is https://lokeshmurali44.github.io/graemar-preview/. GitHub Pages cannot execute the Node server. On that hostname, the quote area links visitors to Graemar's existing contact page rather than offering a non-working local submission. The full quote form remains active on localhost and Node-capable production hosting. The GTM script is also excluded on this preview hostname to avoid counting reviewer activity as live advertising traffic.
+The public preview is https://lokeshmurali44.github.io/graemar-preview/. GitHub Pages cannot execute the Node server. On that hostname, the same quote form is displayed for PM design review. Submitting valid details shows a preview-only notice and makes no API request or lead conversion. The full quote form remains active on localhost and Node-capable production hosting. The GTM script is also excluded on this preview hostname to avoid counting reviewer activity as live advertising traffic.

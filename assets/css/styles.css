@@ -709,20 +709,6 @@ details[open] > summary > span {
 .form-grid textarea {
   resize: vertical;
 }
-.quote-offsite {
-  align-self: start;
-  padding: 28px;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  background: var(--paper);
-}
-.quote-offsite h3 {
-  margin-bottom: 16px;
-}
-.quote-offsite .button {
-  white-space: normal;
-  text-align: left;
-}
 .form-grid select {
   padding-right: 40px;
 }
