@@ -1,6 +1,6 @@
-# Graemar — PM revision
+# Graemar landing page
 
-HTML5 and Bootstrap 5.3.8 landing page. The original parent-folder site is preserved. This revision implements Graemar_LP_Feedback.md supplied on 23 October 2026.
+HTML5 and Bootstrap 5.3.8 landing page. This folder is the only working copy and matches the GitHub repository https://github.com/lokeshmurali44/graemar-preview. It implements Graemar_LP_Feedback.md supplied on 23 October 2026.
 
 ## Preview and editing
 
@@ -45,4 +45,4 @@ Before ad traffic: Bhargav should verify the live form, GTM/Ads conversion count
 
 With the server running: `npm run build`, `npm run check`, `npm run verify:pm`, `npm run accessibility`. Tests use Playwright Chromium and mock all valid quote requests. `npm audit` reports zero vulnerabilities for the locked dependencies.
 
-See validation.md for results and limits. Reports, screenshots and duplicate build output are archived outside this clean handoff folder in ../pm-revision-cleanup-archive/md-feedback-2026-10-23/. Build and test commands regenerate them.
+See validation.md for results and limits. Reports, screenshots (test-results/) and build output (dist/) are not kept; the build and test commands regenerate them.

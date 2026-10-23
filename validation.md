@@ -122,7 +122,7 @@ CSS was reduced from 257,134 to 34,204 bytes. All 47 WebP photo variants are bel
 | Inbox delivery and real Ads/call forwarding | Not Executed: Bhargav's live test pending |
 | Safari, Firefox, physical phones, manual screen-reader testing | Not Executed |
 
-There are no configured TypeScript or lint commands in this plain HTML/JavaScript project. Build and browser tests completed without JavaScript errors. Generated evidence is archived in ../pm-revision-cleanup-archive/md-feedback-2026-10-23/test-results/. Development dependencies remain recorded in package-lock.json; use npm install to restore them when needed.
+There are no configured TypeScript or lint commands in this plain HTML/JavaScript project. Build and browser tests completed without JavaScript errors. Generated evidence (test-results/) is not kept; rerun the tests to regenerate it. Development dependencies remain recorded in package-lock.json; use npm install to restore them when needed.
 
 ## Remaining launch tasks
 
