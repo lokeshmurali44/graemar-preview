@@ -20,7 +20,8 @@ for (const file of (await readdir(source)).filter((file) =>
   const swapped = [5, 6, 7, 8].includes(metadata.orientation);
   const width = swapped ? metadata.height : metadata.width;
   const height = swapped ? metadata.width : metadata.height;
-  const widths = [480, 640];
+  const hero = ["rideau-street-new", "rockliffe-interior-new", "cathedral-hill-after"].includes(name);
+  const widths = hero ? [480, 640, Math.min(900, width)] : [480, 640];
   for (const size of widths) {
     let data;
     for (const quality of [78, 70, 60, 50, 40]) {
@@ -34,5 +35,5 @@ for (const file of (await readdir(source)).filter((file) =>
 }
 await writeFile("assets/data/images.json", JSON.stringify(manifest, null, 2) + "\n");
 console.log(
-  `Prepared ${Object.keys(manifest).length} original photos in two responsive sizes.`,
+  `Prepared ${Object.keys(manifest).length} original photos with responsive WebP sizes.`,
 );

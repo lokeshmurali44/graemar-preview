@@ -1,5 +1,8 @@
-import { mkdir, cp, copyFile, readFile, access } from "node:fs/promises";
+import { mkdir, cp, readFile, access } from "node:fs/promises";
 import assert from "node:assert/strict";
+import "./styles.mjs";
+import { renderMetadata } from "../metadata.mjs";
+import { writeFile } from "node:fs/promises";
 const html = await readFile("index.html", "utf8");
 assert.match(html, /^<!doctype html>/i);
 assert.equal((html.match(/<h1\b/g) || []).length, 1);
@@ -13,7 +16,7 @@ for (const [, file] of html.matchAll(
 ))
   await access(file);
 await mkdir("dist", { recursive: true });
-await copyFile("index.html", "dist/index.html");
+await writeFile("dist/index.html", renderMetadata(html, process.env.SITE_URL));
 await cp("assets", "dist/assets", { recursive: true });
 
 console.log(

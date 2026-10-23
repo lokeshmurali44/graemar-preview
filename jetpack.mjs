@@ -1,4 +1,5 @@
 const contactUrl = "https://graemar.com/home/contact-us/";
+const submitUrl = "https://graemar.com/wp-admin/admin-ajax.php?action=grunion-contact-form";
 
 function decode(value) {
   return value.replace(/&#(x[0-9a-f]+|[0-9]+);|&(amp|quot|apos|lt|gt);/gi, (_, number, name) =>
@@ -31,32 +32,36 @@ export async function submitJetpack(lead, { fetchImpl = fetch, fillDuration = 0 
   fields.set("g48-name", lead.name);
   fields.set("g48-email", lead.email);
   fields.set("g48-comment", [
-    `Project: ${lead.projectType}`, `Phone: ${lead.phone}`, `Location: ${lead.location || "Not provided"}`,
-    `Description: ${lead.description || "Please contact me to discuss my project."}`,
+    `Phone: ${lead.phone}`, `Project: ${lead.projectType}`, `Area: ${lead.location || "Not provided"}`,
+    "Sent from: Graemar doors landing page", "",
+    lead.description || "Please contact me to discuss my project.",
     "", "Landing-page attribution:",
     ...["service", "gclid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
       .filter(key => lead[key]).map(key => `${key}: ${lead[key]}`),
   ].join("\n"));
   fields.set("ak_hp_textarea", "");
   fields.set("ak_js", String(Date.now()));
-  fields.set("jetpack_form_fill_duration", String(Math.max(0, Math.min(Number(fillDuration) || 0, 86400000))));
+  // The browser and Jetpack both use seconds, not milliseconds.
+  fields.set("jetpack_form_fill_duration", String(Math.round(Math.max(0, Math.min(Number(fillDuration) || 0, 86400)))));
   const cookies = (page.headers.getSetCookie?.() || []).map(cookie => cookie.split(";")[0]).join("; ");
-  const result = await fetchImpl(contactUrl, {
+  const result = await fetchImpl(submitUrl, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded", Referer: contactUrl,
+    headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/json", Referer: contactUrl,
       ...(cookies ? { Cookie: cookies } : {}) },
     body: fields.toString(),
     signal: AbortSignal.timeout(14000),
     redirect: "manual",
   });
-  // Jetpack redirects accepted submissions with a feedback ID. A 200 page alone
-  // may contain validation errors and must never count as a conversion.
-  const location = result.headers.get("location");
-  if (![302, 303].includes(result.status) || !location) throw new Error("Jetpack did not confirm acceptance.");
-  const target = new URL(location, contactUrl);
-  if (target.origin !== new URL(contactUrl).origin || target.searchParams.get("contact-form-id") !== "48" ||
-      !/^[1-9]\d*$/.test(target.searchParams.get("contact-form-sent") || "") ||
-      target.searchParams.get("contact-form-hash") !== fields.get("contact-form-hash")) {
+  // Never treat a resolved fetch or generic HTML page as a successful lead.
+  // Jetpack's JSON response confirms the form, hash and created feedback ID.
+  if (!result.ok || !result.headers.get("content-type")?.includes("application/json")) {
+    throw new Error("Jetpack did not confirm acceptance.");
+  }
+  const receipt = await result.json();
+  const args = receipt?.refreshArgs;
+  if (receipt.success !== true || String(args?.["contact-form-id"]) !== "48" ||
+      !/^[1-9]\d*$/.test(String(args?.["contact-form-sent"] || "")) ||
+      args?.["contact-form-hash"] !== fields.get("contact-form-hash")) {
     throw new Error("Jetpack did not confirm acceptance.");
   }
 }

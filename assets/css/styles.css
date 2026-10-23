@@ -1,33 +1,11 @@
-@font-face {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400;
-  src: url("../fonts/dm-sans-latin-400-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 500;
-  src: url("../fonts/dm-sans-latin-500-normal.woff2") format("woff2");
-}
-@font-face {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 600;
-  src: url("../fonts/dm-sans-latin-600-normal.woff2") format("woff2");
-}
-
 :root {
-  --paper: #faf8f4;
-  --cream: #f4f0e8;
-  --navy: #192a3a;
-  --ink: #272727;
-  --muted: #65655f;
-  --oak: #b78a59;
-  --line: #dedbd3;
+  --paper: #ffffff;
+  --cream: #f5f5f5;
+  --navy: #404040;
+  --ink: #404040;
+  --muted: #525252;
+  --oak: #525252;
+  --line: #cccccc;
 }
 * {
   box-sizing: border-box;
@@ -35,12 +13,13 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 24px;
+  scroll-padding-bottom: 88px;
 }
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: "DM Sans", Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   line-height: 1.65;
 }
@@ -90,19 +69,20 @@ p {
 }
 h1,
 h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: var(--navy);
   font-weight: 400;
-  letter-spacing: -0.035em;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
   line-height: 1.12;
 }
 h1 {
-  font-size: clamp(36px, 4.1vw, 60px);
+  font-size: clamp(32px, 3.5vw, 50px);
   max-width: 650px;
   margin-bottom: 24px;
 }
 h2 {
-  font-size: clamp(32px, 3.2vw, 44px);
+  font-size: clamp(28px, 2.8vw, 38px);
   margin-bottom: 24px;
 }
 h3 {
@@ -125,11 +105,11 @@ p {
   background: var(--cream);
 }
 .eyebrow {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #756043;
+  color: #525252;
   margin-bottom: 24px;
   display: flex;
   align-items: center;
@@ -152,14 +132,14 @@ p {
   border: 1px solid var(--navy);
   color: white;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: background 0.2s;
 }
 .button:hover {
-  background: #304354;
+  background: #525252;
 }
 .button span {
   font-size: 19px;
@@ -219,17 +199,17 @@ p {
   min-height: 44px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #aea99e;
+  border-bottom: 1px solid #cccccc;
 }
 .hero-note {
-  font-size: 12px;
+  font-size: 13px;
   margin: 26px 0 0;
-  color: #65655f;
+  color: #525252;
 }
 .hero-image {
   padding: 12px;
-  background: #eee9e0;
-  border: 1px solid #e1dbd1;
+  background: #f1f1f1;
+  border: 1px solid #cccccc;
   border-radius: 5px;
   height: 510px;
   display: flex;
@@ -248,12 +228,12 @@ p {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 12px;
 }
 .hero-figure figcaption > span:last-child {
-  font-size: 8px;
+  font-size: 13px;
   letter-spacing: 0.1em;
   white-space: nowrap;
 }
@@ -265,14 +245,14 @@ p {
   padding-block: 22px;
   gap: 20px;
   font-size: 15px;
-  color: #4c544f;
+  color: #525252;
 }
 .trust-row > span {
   text-align: center;
 }
 .trust-check {
   margin-right: 10px;
-  color: #768574;
+  color: #525252;
 }
 .proof {
   padding-block: 46px 56px;
@@ -280,11 +260,11 @@ p {
 }
 .proof h2 {
   font-family: inherit;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: #65655f;
+  color: #525252;
   margin-bottom: 30px;
 }
 .client-grid {
@@ -295,10 +275,10 @@ p {
   align-items: center;
 }
 .client-grid > span {
-  font-family: Georgia, serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4;
-  color: #60625c;
+  color: #525252;
 }
 .section-heading {
   display: grid;
@@ -322,15 +302,15 @@ p {
   margin-top: 48px;
 }
 .number {
-  color: #80613e;
-  font-size: 12px;
+  color: #525252;
+  font-size: 13px;
   letter-spacing: 0.08em;
   display: block;
   margin-bottom: 26px;
 }
 .benefit-grid article,
 .steps article {
-  border-top: 1px solid #cfc9bd;
+  border-top: 1px solid #cccccc;
   padding-top: 24px;
 }
 .benefit-grid h3 {
@@ -348,7 +328,7 @@ p {
   gap: 36px 24px;
 }
 .gallery-image {
-  background: #eee9e0;
+  background: #f1f1f1;
   padding: 8px;
   border-radius: 4px;
   aspect-ratio: 3/4;
@@ -370,7 +350,7 @@ p {
   margin: 0 0 3px;
 }
 .gallery figcaption > span {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
 }
 .gallery-cta {
@@ -399,7 +379,7 @@ p {
   gap: 24px;
 }
 .comparison-image {
-  background: #e8e2d8;
+  background: #eeeeee;
   border-radius: 4px;
   padding: 8px;
   height: 510px;
@@ -415,13 +395,13 @@ p {
   display: flex;
   justify-content: space-between;
   margin-top: 12px;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
 }
 .comparison figcaption > span:first-child {
   color: var(--navy);
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.13em;
   font-weight: 600;
 }
@@ -488,7 +468,7 @@ p {
   right: 16px;
   margin: 0;
   padding: 8px 12px;
-  background: var(--paper, #faf8f4);
+  background: var(--paper, #ffffff);
   border-radius: 2px;
 }
 .is-slider > figure:first-child figcaption {
@@ -518,7 +498,7 @@ p {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--paper, #faf8f4);
+  background: var(--paper, #ffffff);
   color: var(--navy);
   display: flex;
   align-items: center;
@@ -547,7 +527,7 @@ p {
 }
 .comparison-hint {
   margin: 12px 0 0;
-  font-size: 12px;
+  font-size: 13px;
   text-align: center;
   color: var(--muted);
 }
@@ -589,7 +569,7 @@ details[open] > summary > span {
   border-radius: 4px;
 }
 .service-layout figcaption {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 12px;
 }
@@ -601,7 +581,7 @@ details[open] > summary > span {
   grid-template-columns: 1fr 1fr;
   gap: 12px 24px;
   font-size: 13px;
-  color: #565952;
+  color: #525252;
 }
 .service-layout li {
   border-bottom: 1px solid var(--line);
@@ -613,7 +593,7 @@ details[open] > summary > span {
 }
 .service-title {
   white-space: nowrap;
-  font-size: min(44px, 7.6cqi);
+  font-size: min(32px, 4.7cqi);
 }
 .faq {
   display: grid;
@@ -638,7 +618,7 @@ details[open] > summary > span {
   max-width: 520px;
 }
 .quote {
-  background: #ede8dd;
+  background: #eeeeee;
   scroll-margin-top: 20px;
 }
 .quote-layout {
@@ -657,7 +637,7 @@ details[open] > summary > span {
   gap: 10px;
 }
 .contact > a:first-child {
-  font-family: Georgia, serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 26px;
   color: var(--navy);
 }
@@ -671,7 +651,7 @@ details[open] > summary > span {
 }
 .quote-rule {
   height: 1px;
-  background: #cec6b7;
+  background: #cccccc;
   width: 64px;
   margin: 32px 0 24px;
 }
@@ -685,12 +665,12 @@ details[open] > summary > span {
   gap: 20px;
 }
 .form-grid label {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--navy);
 }
 .form-grid label > span {
-  color: #765636;
+  color: #525252;
 }
 .form-grid input,
 .form-grid select,
@@ -698,7 +678,7 @@ details[open] > summary > span {
   display: block;
   width: 100%;
   margin-top: 8px;
-  border: 1px solid #c7c2b7;
+  border: 1px solid #cccccc;
   border-radius: 4px;
   background-color: var(--paper);
   padding: 12px;
@@ -720,7 +700,7 @@ form > .button {
   margin-top: 24px;
 }
 .form-note {
-  font-size: 12px;
+  font-size: 13px;
   margin-top: 12px;
   text-align: center;
 }
@@ -753,17 +733,17 @@ form > .button {
 }
 
 .footer p {
-  font-size: 12px;
+  font-size: 13px;
   margin: 0;
 }
 .footer p > span {
-  font-size: 12px;
+  font-size: 13px;
 }
 .footer > div {
   display: flex;
   flex-direction: column;
   gap: 0;
-  font-size: 12px;
+  font-size: 13px;
 }
 .mobile-sticky {
   display: none;
@@ -933,12 +913,12 @@ form > .button {
     gap: 28px;
   }
   .eyebrow {
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 0.13em;
     margin-bottom: 18px;
   }
   .hero h1 {
-    font-size: 38px;
+    font-size: 32px;
     line-height: 1.13;
     margin-bottom: 20px;
   }
@@ -958,7 +938,7 @@ form > .button {
   .hero-actions > a:last-child {
     align-self: center;
     border-bottom: none;
-    font-size: 12px;
+    font-size: 13px;
   }
   .hero-note {
     display: none;
@@ -974,7 +954,7 @@ form > .button {
     object-fit: contain;
   }
   .hero-figure figcaption {
-    font-size: 12px;
+    font-size: 13px;
   }
   .hero-figure figcaption > span:last-child {
     display: none;
@@ -991,7 +971,7 @@ form > .button {
     padding-block: 36px 40px;
   }
   .proof h2 {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.6;
     max-width: 280px;
     margin-inline: auto;
@@ -1001,7 +981,7 @@ form > .button {
     gap: 20px 16px;
   }
   .client-grid > span {
-    font-size: 12px;
+    font-size: 13px;
   }
   .benefit-grid {
     gap: 28px 20px;
@@ -1014,7 +994,7 @@ form > .button {
     font-size: 16px;
   }
   .benefit-grid p {
-    font-size: 12px;
+    font-size: 13px;
   }
   .gallery {
     gap: 28px 16px;
@@ -1023,7 +1003,7 @@ form > .button {
     font-size: 14px;
   }
   .gallery figcaption > span {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.4;
     display: block;
   }
@@ -1056,7 +1036,7 @@ form > .button {
     object-fit: contain;
   }
   .comparison figcaption {
-    font-size: 12px;
+    font-size: 13px;
   }
   .steps {
     grid-template-columns: 1fr;
@@ -1071,7 +1051,7 @@ form > .button {
   }
   .service-layout ul {
     gap: 12px 18px;
-    font-size: 12px;
+    font-size: 13px;
   }
   .faq summary {
     font-size: 13px;
@@ -1085,7 +1065,7 @@ form > .button {
     gap: 16px;
   }
   .quote h2 {
-    font-size: 38px;
+    font-size: 32px;
   }
   .contact {
     margin-top: 24px;
@@ -1110,7 +1090,7 @@ form > .button {
     left: 0;
     right: 0;
     z-index: 10;
-    background: rgba(250, 248, 244, 0.98);
+    background: rgba(255, 255, 255, 0.98);
     border-top: 1px solid var(--line);
     padding: 10px 20px calc(10px + env(safe-area-inset-bottom));
     gap: 12px;
@@ -1126,7 +1106,7 @@ form > .button {
     transform: translateY(0);
   }
   .mobile-sticky > a:first-child {
-    font-size: 12px;
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     min-height: 48px;
@@ -1138,7 +1118,7 @@ form > .button {
     flex: 1;
     min-height: 48px;
     padding: 12px 16px;
-    font-size: 12px;
+    font-size: 13px;
   }
   .quote {
     scroll-margin-top: 0;
@@ -1154,14 +1134,14 @@ form > .button {
     transition: none !important;
   }
 }
-/* Bootstrap components retain Graemar's existing visual system. */
+/* Bootstrap components use the Graemar brand palette. */
 .button.btn-primary {
   --bs-btn-bg: var(--navy);
   --bs-btn-border-color: var(--navy);
-  --bs-btn-hover-bg: #304354;
-  --bs-btn-hover-border-color: #304354;
-  --bs-btn-active-bg: #304354;
-  --bs-btn-active-border-color: #304354;
+  --bs-btn-hover-bg: #525252;
+  --bs-btn-hover-border-color: #525252;
+  --bs-btn-active-bg: #525252;
+  --bs-btn-active-border-color: #525252;
 }
 .gallery.row {
   display: flex;
@@ -1175,8 +1155,8 @@ form > .button {
 }
 .form-control:focus,
 .form-select:focus {
-  border-color: #80613e;
-  box-shadow: 0 0 0 0.2rem rgb(183 138 89 / 18%);
+  border-color: #525252;
+  box-shadow: 0 0 0 0.2rem rgb(82 82 82 / 18%);
 }
 .reviews {
   border-top: 1px solid var(--line);
@@ -1207,7 +1187,7 @@ form > .button {
   padding: 32px;
 }
 .review-stars {
-  color: #80613e;
+  color: #525252;
   letter-spacing: 0.16em;
   font-size: 17px;
   margin-bottom: 20px;
@@ -1216,7 +1196,7 @@ form > .button {
   margin: 0 0 28px;
 }
 .review-card blockquote p {
-  font-family: Georgia, serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 23px;
   line-height: 1.45;
   color: var(--navy);
@@ -1230,7 +1210,7 @@ form > .button {
 }
 .review-platform {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 4px;
 }
@@ -1281,13 +1261,13 @@ form > .button {
   gap: 32px;
   flex: 0 0 auto;
   white-space: nowrap;
-  font-family: Georgia, serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   line-height: 1.6;
-  color: #60625c;
+  color: #525252;
 }
 .client-bullet {
-  color: #80613e;
+  color: #525252;
   font-size: 14px;
 }
 .client-marquee:hover .client-track,
@@ -1349,15 +1329,18 @@ form > .button {
 }
 
 /* Touch targets remain usable without changing the visual labels. */
+/* purgecss start ignore */
 a[href^="tel:"], a[href^="mailto:"] {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
 }
+/* purgecss end ignore */
 @media (max-width: 599px) {
   .faq .mobile-single-line,
   .quote .mobile-single-line {
-    font-size: clamp(20px, 5.8vw, 32px);
+    font-size: clamp(16px, 4.5vw, 26px);
+    letter-spacing: 0.015em;
     white-space: nowrap;
   }
   .mobile-single-line br {

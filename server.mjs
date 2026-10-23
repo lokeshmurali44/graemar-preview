@@ -1,6 +1,7 @@
 import { submitJetpack } from "./jetpack.mjs";
+import { renderMetadata } from "./metadata.mjs";
 import http from "node:http";
-import { stat } from "node:fs/promises";
+import { stat, readFile } from "node:fs/promises";
 import { createGzip } from "node:zlib";
 import { createReadStream, existsSync } from "node:fs";
 import { resolve, extname, sep } from "node:path";
@@ -141,6 +142,11 @@ const server = http.createServer(async (request, response) => {
       return json(response, 404, { error: "Not found." });
     if (!types[extname(path)] || !(await stat(path)).isFile())
       return json(response, 404, { error: "Not found." });
+    if (name === "/index.html" && process.env.SITE_URL) {
+      const html = renderMetadata(await readFile(path, "utf8"), process.env.SITE_URL);
+      response.writeHead(200, { "Content-Type": types[".html"], "Cache-Control": "no-cache" });
+      return response.end(request.method === "HEAD" ? undefined : html);
+    }
     const compress =
       /gzip/.test(request.headers["accept-encoding"] || "") &&
       [".html", ".css", ".js", ".svg"].includes(extname(path));

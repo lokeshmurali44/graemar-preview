@@ -102,7 +102,7 @@ assert.equal(
   await page
     .locator(".mobile-sticky")
     .evaluate((el) => getComputedStyle(el).visibility),
-  "hidden",
+  "visible",
 );
 await page.locator("#projects").scrollIntoViewIfNeeded();
 await page.waitForFunction(() =>
@@ -111,7 +111,7 @@ await page.waitForFunction(() =>
 await page.locator(".mobile-sticky .button").click();
 await page.waitForFunction(
   () =>
-    !document.querySelector(".mobile-sticky").classList.contains("is-visible"),
+    document.querySelector(".mobile-sticky").classList.contains("is-visible"),
 );
 await page.goto(
   `${base}/?s=interior&gclid=test-click&utm_source=google&utm_medium=cpc&utm_campaign=doors&utm_term=custom&utm_content=ad1`,

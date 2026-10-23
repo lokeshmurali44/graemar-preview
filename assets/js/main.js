@@ -121,19 +121,19 @@
     "rideau-street-new": {
       width: 715,
       height: 1258,
-      widths: [480, 640],
+      widths: [480, 640, 715],
       source: "RIDEAU STREET NEW.jpg",
     },
     "rockliffe-interior-new": {
       width: 7650,
       height: 5464,
-      widths: [480, 640],
+      widths: [480, 640, 900],
       source: "ROCKLIFFE INTERIOR NEW.jpg",
     },
     "cathedral-hill-after": {
       width: 6500,
       height: 4349,
-      widths: [480, 640],
+      widths: [480, 640, 900],
       source: "CATHEDRAL HILL AFTER.jpg",
     },
   };
@@ -191,24 +191,13 @@
       track("email_click");
   });
   const sticky = document.querySelector(".mobile-sticky");
-  const quote = document.getElementById("quote");
-  let scheduled = false;
+  // Keep contact actions available throughout the mobile page.
+  const mobile = window.matchMedia("(max-width: 599px)");
   function updateSticky() {
-    const visible =
-      hero.getBoundingClientRect().bottom < 0 &&
-      quote.getBoundingClientRect().top > innerHeight * 0.8;
-    sticky.classList.toggle("is-visible", visible);
-    sticky.inert = !visible;
-    scheduled = false;
+    sticky.classList.toggle("is-visible", mobile.matches);
+    sticky.inert = !mobile.matches;
   }
-  function requestStickyUpdate() {
-    if (!scheduled) {
-      scheduled = true;
-      requestAnimationFrame(updateSticky);
-    }
-  }
-  window.addEventListener("scroll", requestStickyUpdate, { passive: true });
-  window.addEventListener("resize", requestStickyUpdate);
+  mobile.addEventListener("change", updateSticky);
   updateSticky();
   const formStartedAt = Date.now();
   let status = "idle";
@@ -240,7 +229,7 @@
       const response = await fetch(form.action, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...Object.fromEntries(new FormData(form)), fillDuration: Date.now() - formStartedAt }),
+        body: JSON.stringify({ ...Object.fromEntries(new FormData(form)), fillDuration: Math.round((Date.now() - formStartedAt) / 1000) }),
         signal: AbortSignal.timeout(30000),
       });
       const data = await response.json().catch(() => ({}));
