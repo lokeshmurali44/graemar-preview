@@ -1,0 +1,200 @@
+{
+  "cathedral-hill-after": {
+    "width": 6500,
+    "height": 4349,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "CATHEDRAL HILL AFTER.jpg"
+  },
+  "cathedral-hill-before": {
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "CATHEDRAL HILL BEFORE.jpeg"
+  },
+  "cathedral-hill-reproduction": {
+    "width": 1600,
+    "height": 1200,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "CATHEDRAL HILL REPRODUCTION.JPG"
+  },
+  "clemow-new": {
+    "width": 4359,
+    "height": 6500,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "CLEMOW NEW.jpg"
+  },
+  "first-ave-before": {
+    "width": 4032,
+    "height": 3024,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "FIRST AVE BEFORE.jpeg"
+  },
+  "first-ave-reproduction-after": {
+    "width": 2337,
+    "height": 2779,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "FIRST AVE REPRODUCTION AFTER.jpeg"
+  },
+  "foxglove-after": {
+    "width": 3024,
+    "height": 4032,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "FOXGLOVE AFTER.jpg"
+  },
+  "foxglove-before": {
+    "width": 3024,
+    "height": 4032,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "FOXGLOVE BEFORE.jpeg"
+  },
+  "heath-new": {
+    "width": 3024,
+    "height": 4032,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "HEATH NEW.jpg"
+  },
+  "interior-woodwork": {
+    "width": 1750,
+    "height": 1202,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "INTERIOR WOODWORK.jpg"
+  },
+  "king-street-after": {
+    "width": 4006,
+    "height": 5710,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "KING STREET AFTER.jpeg"
+  },
+  "king-street-before": {
+    "width": 900,
+    "height": 1600,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "KING STREET BEFORE.JPG"
+  },
+  "red-squirrel-new": {
+    "width": 1536,
+    "height": 2048,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "RED SQUIRREL NEW.jpeg"
+  },
+  "rideau-street-new": {
+    "width": 715,
+    "height": 1258,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "RIDEAU STREET NEW.jpg"
+  },
+  "rockliffe-interior-new": {
+    "width": 7650,
+    "height": 5464,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "ROCKLIFFE INTERIOR NEW.jpg"
+  },
+  "roxborough-before": {
+    "width": 3024,
+    "height": 4032,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "ROXBOROUGH BEFORE.jpeg"
+  },
+  "roxborough-reproduction-after": {
+    "width": 3024,
+    "height": 4032,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "ROXBOROUGH REPRODUCTION AFTER.jpeg"
+  },
+  "westboro-new": {
+    "width": 4333,
+    "height": 6500,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "WESTBORO NEW.jpg"
+  },
+  "willingdon-before": {
+    "width": 828,
+    "height": 1792,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "WILLINGDON BEFORE.PNG"
+  },
+  "willingdon-restoration-after": {
+    "width": 1692,
+    "height": 2047,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "WILLINGDON RESTORATION AFTER.JPG"
+  },
+  "winchester-bell-tower-reproduction": {
+    "width": 1200,
+    "height": 1600,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "WINCHESTER BELL TOWER REPRODUCTION.JPG"
+  },
+  "windows-and-doors": {
+    "width": 1750,
+    "height": 1166,
+    "widths": [
+      480,
+      640
+    ],
+    "source": "WINDOWS AND DOORS.jpg"
+  }
+}
