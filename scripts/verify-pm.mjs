@@ -60,8 +60,14 @@ try {
     assert.deepEqual(smallText, [], `Text below 13px at ${width}`);
     if (width < 600) assert.ok(await page.locator('.mobile-single-line').evaluateAll(es => es.every(e =>
       e.scrollWidth <= e.clientWidth && Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight)) === 1)));
-    assert.deepEqual(await page.locator(".benefit-grid p").evaluateAll(es => es.map(e => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight)))), [3, 3, 3, 3], `Benefit lines at ${width}`);
-    assert.deepEqual(await page.locator(".steps p").evaluateAll(es => es.map(e => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight)))), [2, 2, 2], `Process lines at ${width}`);
+    if (width < 900) {
+      assert.deepEqual(await page.locator(".benefit-grid p").evaluateAll(es => es.map(e => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight)))), [3, 3, 3, 3], `Benefit lines at ${width}`);
+      assert.deepEqual(await page.locator(".steps p").evaluateAll(es => es.map(e => Math.round(e.getBoundingClientRect().height / parseFloat(getComputedStyle(e).lineHeight)))), [2, 2, 2], `Process lines at ${width}`);
+    } else {
+      // Desktop descriptions have no forced breaks and must keep spaces between words.
+      assert.ok(await page.locator(".benefit-grid p br, .steps p br").evaluateAll(es => es.every(e => getComputedStyle(e).display === "none")), `Desktop breaks hidden at ${width}`);
+      assert.ok(await page.locator(".benefit-grid p br, .steps p br").evaluateAll(es => es.every(e => /\s$/.test(e.previousSibling?.textContent || ""))), `Words joined at ${width}`);
+    }
   }
   await page.setViewportSize({ width: 375, height: 812 });
   for (const link of await page.locator('a[href^="tel:"],a[href^="mailto:"]').all()) {

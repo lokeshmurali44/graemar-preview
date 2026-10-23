@@ -16,7 +16,7 @@ The GitHub preview is https://lokeshmurali44.github.io/graemar-preview/. It show
 - PurgeCSS removes unused CSS and clean-css minifies it: approximately 257 KB becomes 34 KB. Source CSS and the Bootstrap license are retained. No web fonts need downloading.
 - White/light-grey/dark-grey palette, Arial typography and uppercase, spaced main headings follow the PM's brand specification. Existing layout, reviews, project grid and six comparison sliders remain.
 - Text is at least 13px, excluding lettering inside the supplied logo image. Contact links remain at least 44px high. The sticky Call/Quote bar stays available across the mobile page.
-- Three-line benefit descriptions and two-line process descriptions are retained at all tested widths. Mobile FAQ and quote headings stay on one line, and the project selector has a visible arrow.
+- Below 900px, benefit descriptions keep three lines and process descriptions two lines; on desktop (900px and wider) both flow as continuous sentences without forced breaks. Mobile FAQ and quote headings stay on one line, and the project selector has a visible arrow.
 - Preview noindex/nofollow, Open Graph sharing tags and basic LocalBusiness data are included. The final canonical is intentionally absent until the final live URL is supplied.
 
 ## Quote delivery
